@@ -9,9 +9,12 @@ function TaskForm({ onTaskCreate }){
 
         if (!title.trim()) return;
 
-        onTaskCreate(title);
+        if (!description.trim()) return;
 
-        setTitle('')
+        onTaskCreate(title, description);
+
+        setTitle('');
+        setDescription('');
     }
     
     return(

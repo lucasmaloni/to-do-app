@@ -25,9 +25,9 @@ function App() {
     return <ul>{taskList}</ul>
   }
 
-  const addTask = async(title) => {
+  const addTask = async(title, description) => {
     try{
-      const newTask = {title: title, description:"", status:"pending"};
+      const newTask = {title: title, description: description, status:"pending"};
       const response = await axios.post('http://localhost:3001/tasks', newTask);
       setTasks([...tasks, response.data]);
     } catch(error){
