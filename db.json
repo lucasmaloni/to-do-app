@@ -1,16 +1,16 @@
 {
-    "tasks":[
-        {
-            "id": 1,
-            "title": "Make CRUD app",
-            "description": "Develop the front-end with react and develop a small backend",
-            "status": "ongoing"            
-        },
-        {
-            "id":2,
-            "title": "sleep",
-            "description": "Rest well",
-            "status": "pending"
-        }
-    ]
+  "tasks": [
+    {
+      "id": "1",
+      "title": "Make CRUD app",
+      "description": "Develop the front-end with react and develop a small backend",
+      "status": "ongoing"
+    },
+    {
+      "id": "2",
+      "title": "sleep",
+      "description": "Rest well",
+      "status": "pending"
+    }
+  ]
 }
