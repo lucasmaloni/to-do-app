@@ -11,12 +11,6 @@
       "title": "sleep",
       "description": "Rest well",
       "status": "pending"
-    },
-    {
-      "id": "6216",
-      "title": "make crud",
-      "description": "lol",
-      "status": "pending"
     }
   ]
 }
