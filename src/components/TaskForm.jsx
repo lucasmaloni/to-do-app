@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function TaskForm({ onTaskCreate }){
     const [title, setTitle] = useState('');
-    /*const [description, setDescription] = useState('');*/
+    const [description, setDescription] = useState('');
 
     const handleSubmit = (submit) =>{
         submit.preventDefault();
@@ -23,6 +23,13 @@ function TaskForm({ onTaskCreate }){
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 />
+                <br/>
+                <input type="text"
+                placeholder="Task description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                />
+                <br/>
                 <button type="submit">Add Task</button>
             </form>
         </div>
