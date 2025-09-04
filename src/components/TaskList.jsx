@@ -1,5 +1,6 @@
+import EditTaskForm from "./EditTaskForm";
 
-function TaskList({ tasks, onTaskDelete, onTaskEdit, editingTask }) {
+function TaskList({ tasks, onTaskDelete, onTaskUpdate, editingTask, onTaskEdit }) {
 
     if(tasks.length == 0){
         return <p>No tasks yet. Add one!</p>
@@ -12,7 +13,10 @@ function TaskList({ tasks, onTaskDelete, onTaskEdit, editingTask }) {
                 {tasks.map(task =>(
                     <li key={task.id}>
                         { editingTask && editingTask.id === task.id ? (
-                            <p> I'm editing the task:{task.title} </p>
+                            <EditTaskForm
+                            taskToEdit={editingTask}
+                            onSaveTask={onTaskUpdate}
+                            />
                         ) : (
                         <div>
                             <strong>{task.title}</strong>: {task.description}

@@ -45,7 +45,21 @@ function App() {
   }
 
   const handleEditClick = (task) => {
+    console.log("O app recebeu a ordem para editar a tarefa", task);
     setEditingTask(task);
+  };
+
+  const handleUpdateTask = async (updatedTask) => {
+    try {
+      console.log("it is supposed to work")
+      const response = await axios.put(`http://localhost:3001/tasks/${updatedTask.id}`, updatedTask);
+      setTasks(tasks.map(task => task.id === updatedTask.id ? response.data : task));
+      setEditingTask(null);
+
+    } catch (error){
+      console.error("Failed to update Task: ", error);
+
+    }
   };
 
   return (
@@ -53,10 +67,12 @@ function App() {
       <h1>to-do app</h1>
       <TaskForm onTaskCreate={addTask}/>
       <TaskList 
-      tasks={tasks} 
-      onTaskDelete={deleteTask}
+      tasks={tasks}
+      editingTask={editingTask}
       onTaskEdit={handleEditClick}
-      editingTask={editingTask}/>
+      onTaskUpdate={handleUpdateTask}
+      onTaskDelete={deleteTask}
+      />
     </div>
   );
 }

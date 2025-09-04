@@ -2,8 +2,8 @@
   "tasks": [
     {
       "id": "1",
-      "title": "Make CRUD app",
-      "description": "Develop the front-end with react and develop a small backend",
+      "title": "Finish CRUD App",
+      "description": "Make it beautiful and make the backend",
       "status": "ongoing"
     },
     {
