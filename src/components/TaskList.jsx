@@ -1,4 +1,5 @@
 import EditTaskForm from "./EditTaskForm";
+import styles from './TaskList.module.css';
 
 function TaskList({ tasks, onTaskDelete, onTaskUpdate, editingTask, onTaskEdit }) {
 
@@ -9,20 +10,24 @@ function TaskList({ tasks, onTaskDelete, onTaskUpdate, editingTask, onTaskEdit }
     return  (
         <div>
             <h2>Task List</h2>
-            <ul>
+            <ul className={styles.TaskList}>
                 {tasks.map(task =>(
-                    <li key={task.id}>
+                    <li key={task.id} className={styles.TaskList}>
                         { editingTask && editingTask.id === task.id ? (
                             <EditTaskForm
                             taskToEdit={editingTask}
                             onSaveTask={onTaskUpdate}
                             />
                         ) : (
-                        <div>
+                        <>
+                        <div className={styles.taskContent}>
                             <strong>{task.title}</strong>: {task.description}
-                            <button onClick = {() => onTaskEdit(task)}>Edit Task</button>
-                            <button onClick={() => onTaskDelete(task.id)}>Delete</button>
                         </div>
+                        <div className={styles.taskActions}>
+                            <button onClick={() => onTaskEdit(task)} className={styles.editButton}>Edit Task</button>
+                            <button onClick={() => onTaskDelete(task.id)} className={styles.deleteButton}>Delete</button>
+                        </div>
+                        </>
                         )}
                     </li>
                 ))}

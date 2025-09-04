@@ -11,6 +11,12 @@
       "title": "Start UI",
       "description": "Develop the UI of the CRUD",
       "status": "pending"
+    },
+    {
+      "id": "d7eb",
+      "title": "Take a shower",
+      "description": "not much to add",
+      "status": "pending"
     }
   ]
 }

@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import axios from 'axios';
 import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
+import styles from './App.module.css';
 
 function App() {
   const[tasks, setTasks] = useState([]);
@@ -63,17 +64,18 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>to-do app</h1>
+    <div className={styles.container}>
+      <h1>To-Do App</h1>
       <TaskForm onTaskCreate={addTask}/>
       <TaskList 
-      tasks={tasks}
-      editingTask={editingTask}
-      onTaskEdit={handleEditClick}
-      onTaskUpdate={handleUpdateTask}
-      onTaskDelete={deleteTask}
+        tasks={tasks}
+        editingTask={editingTask}
+        onTaskEdit={handleEditClick}
+        onTaskUpdate={handleUpdateTask}
+        onTaskDelete={deleteTask}
       />
     </div>
+      
   );
 }
 
