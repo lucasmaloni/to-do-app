@@ -46,13 +46,11 @@ function App() {
   }
 
   const handleEditClick = (task) => {
-    console.log("O app recebeu a ordem para editar a tarefa", task);
     setEditingTask(task);
   };
 
   const handleUpdateTask = async (updatedTask) => {
     try {
-      console.log("it is supposed to work")
       const response = await axios.put(`http://localhost:3001/tasks/${updatedTask.id}`, updatedTask);
       setTasks(tasks.map(task => task.id === updatedTask.id ? response.data : task));
       setEditingTask(null);
