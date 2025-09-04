@@ -17,6 +17,12 @@
       "title": "Take a shower",
       "description": "not much to add",
       "status": "pending"
+    },
+    {
+      "id": "a260",
+      "title": "A new task",
+      "description": "A new thing to do!",
+      "status": "pending"
     }
   ]
 }

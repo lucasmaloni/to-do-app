@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from './EditTaskForm.module.css';
 
 function EditTaskForm({ taskToEdit, onSaveTask }){
     const [updatedTitle, setUpdatedTitle] = useState(taskToEdit.title);
@@ -11,7 +12,7 @@ function EditTaskForm({ taskToEdit, onSaveTask }){
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={styles.editForm}>
             <input 
             type="text"
             value={updatedTitle}

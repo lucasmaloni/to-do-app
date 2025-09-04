@@ -1,0 +1,31 @@
+.editForm {
+  flex-grow: 1; 
+  display: flex;
+  flex-direction: column; 
+  gap: 0.5rem; 
+  padding: 0.5rem 0; 
+}
+
+.editForm input {
+  padding: 0.4rem;
+  border: 1px solid #a0a0a0; 
+  border-radius: 5px;
+  font-size: 0.95rem;
+  width: 95%;
+}
+
+.editForm button {
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #28a745; 
+  color: white;
+  font-size: 0.95rem;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-top: 0.5rem; 
+}
+
+.editForm button:hover {
+  background-color: #218838;
+}
