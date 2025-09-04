@@ -6,19 +6,20 @@ import TaskList from "./components/TaskList";
 
 function App() {
   const[tasks, setTasks] = useState([]);
-  
-    useEffect(()=> {
-    const getTasks = async () => {
-      try{
-        const response = await axios.get("http://localhost:3001/tasks");
-        setTasks(response.data);
-      } catch(error){
-        console.log("There was an error  trying to retrieve the data", error);
-      }
-    }
+  const[editingTask, setEditingTask] = useState(null)
 
-    getTasks();
-    },[])
+  useEffect(()=> {
+  const getTasks = async () => {
+    try{
+      const response = await axios.get("http://localhost:3001/tasks");
+      setTasks(response.data);
+    } catch(error){
+      console.log("There was an error  trying to retrieve the data", error);
+    }
+  }
+
+  getTasks();
+  },[])
 
   const addTask = async(title, description) => {
     try{
@@ -43,11 +44,19 @@ function App() {
     }
   }
 
+  const handleEditClick = (task) => {
+    setEditingTask(task);
+  };
+
   return (
     <div>
       <h1>to-do app</h1>
       <TaskForm onTaskCreate={addTask}/>
-      <TaskList tasks={tasks} onTaskDelete={deleteTask}/>
+      <TaskList 
+      tasks={tasks} 
+      onTaskDelete={deleteTask}
+      onTaskEdit={handleEditClick}
+      editingTask={editingTask}/>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 
-function TaskList({ tasks, onTaskDelete }) {
+function TaskList({ tasks, onTaskDelete, onTaskEdit, editingTask }) {
 
     if(tasks.length == 0){
         return <p>No tasks yet. Add one!</p>
@@ -11,10 +11,15 @@ function TaskList({ tasks, onTaskDelete }) {
             <ul>
                 {tasks.map(task =>(
                     <li key={task.id}>
-                        <strong>{task.title}</strong>: {task.description}
-                        <button onClick={() => onTaskDelete(task.id)}> 
-                            Delete
-                        </button>
+                        { editingTask && editingTask.id === task.id ? (
+                            <p> I'm editing the task:{task.title} </p>
+                        ) : (
+                        <div>
+                            <strong>{task.title}</strong>: {task.description}
+                            <button onClick = {() => onTaskEdit(task)}>Edit Task</button>
+                            <button onClick={() => onTaskDelete(task.id)}>Delete</button>
+                        </div>
+                        )}
                     </li>
                 ))}
             </ul>
