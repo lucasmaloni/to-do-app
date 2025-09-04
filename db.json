@@ -8,8 +8,8 @@
     },
     {
       "id": "2",
-      "title": "sleep",
-      "description": "Rest well",
+      "title": "Start UI",
+      "description": "Develop the UI of the CRUD",
       "status": "pending"
     }
   ]
